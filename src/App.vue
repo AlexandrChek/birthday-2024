@@ -37,7 +37,7 @@ export default {
 
       setTimeout(() => {
         this.isFirework = false
-      }, 3000)
+      }, 2000)
     })
 
     this.getNumber()
@@ -62,6 +62,7 @@ export default {
   --dim-green: #369b72;
   --light-green: #42b983;
   --blue-balloon: rgba(0, 0, 255, 0.6);
+  --diameter: calc(30px + 1vw);
 }
 
 html {
@@ -71,7 +72,7 @@ body {
   margin: 0;
   text-align: center;
   background: linear-gradient(orange, rgb(126, 8, 126));
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .greeting {
@@ -118,20 +119,19 @@ p {
 }
 
 .firework {
-  width: 50px;
-  height: 50px;
-  background-color: red;
+  width: var(--diameter);
+  height: var(--diameter);
   border-radius: 50%;
   position: absolute;
   top: 0;
 }
 #firework-left {
   left: 0;
-  animation: firework-left-show 3s;
+  animation: firework-left-show 2s;
 }
 #firework-right {
   right: 0;
-  animation: firework-right-show 3s;
+  animation: firework-right-show 2s;
 }
 
 .balloons {
@@ -165,30 +165,32 @@ p {
 @keyframes firework-left-show {
   0% {
     transform: translate(0%, 0%) scale(0);
-    opacity: 0;
+    background-color: red;
+    opacity: 1;
   }
   33% {
     transform: translate(120%, 120%) scale(1);
-    opacity: 1;
+    background-color: red;
+    opacity: 0;
   }
   34% {
     transform: translate(120%, 120%) scale(0);
-    opacity: 0;
+    background-color: blue;
+    opacity: 1;
   }
   67% {
-    transform: translate(240%, 240%) scale(1);
-    opacity: 1;
+    transform: translate(240%, 240%) scale(1.2);
+    background-color: blue;
+    opacity: 0;
   }
   68% {
     transform: translate(240%, 240%) scale(0);
-    opacity: 0;
-  }
-  90% {
-    transform: translate(350%, 350%) scale(1);
+    background-color: green;
     opacity: 1;
   }
   100% {
-    transform: translate(350%, 350%) scale(1);
+    transform: translate(350%, 350%) scale(1.4);
+    background-color: green;
     opacity: 0;
   }
 }
@@ -196,30 +198,32 @@ p {
 @keyframes firework-right-show {
   0% {
     transform: translate(0%, 0%) scale(0);
-    opacity: 0;
+    background-color: red;
+    opacity: 1;
   }
   33% {
     transform: translate(-120%, 120%) scale(1);
-    opacity: 1;
+    background-color: red;
+    opacity: 0;
   }
   34% {
     transform: translate(-120%, 120%) scale(0);
-    opacity: 0;
+    background-color: blue;
+    opacity: 1;
   }
   67% {
-    transform: translate(-240%, 240%) scale(1);
-    opacity: 1;
+    transform: translate(-240%, 240%) scale(1.2);
+    background-color: blue;
+    opacity: 0;
   }
   68% {
     transform: translate(-240%, 240%) scale(0);
-    opacity: 0;
-  }
-  90% {
-    transform: translate(-350%, 350%) scale(1);
+    background-color: green;
     opacity: 1;
   }
   100% {
-    transform: translate(-350%, 350%) scale(1);
+    transform: translate(-350%, 350%) scale(1.4);
+    background-color: green;
     opacity: 0;
   }
 }
