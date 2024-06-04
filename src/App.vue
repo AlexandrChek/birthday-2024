@@ -12,7 +12,7 @@
       ></iframe>
       <p>Поверни телефон</p>
     </div>
-    <div class="fireworks" v-if="isFirework">
+    <div class="fireworks" v-if="isFirework && !started">
       <div class="firework" id="firework-left"></div>
       <div class="firework" id="firework-right"></div>
     </div>
@@ -34,10 +34,6 @@ export default {
   mounted() {
     window.addEventListener('load', () => {
       this.isFirework = true
-
-      setTimeout(() => {
-        this.isFirework = false
-      }, 2000)
     })
 
     this.getNumber()
@@ -127,11 +123,11 @@ p {
 }
 #firework-left {
   left: 0;
-  animation: firework-left-show 2s;
+  animation: firework-left-show 2s linear infinite;
 }
 #firework-right {
   right: 0;
-  animation: firework-right-show 2s;
+  animation: firework-right-show 2s linear infinite;
 }
 
 .balloons {
